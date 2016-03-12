@@ -1,15 +1,5 @@
 def log(args, varlist, globallist):
-    if isinstance(args[0], str):
-        print(args[0])
-    elif isinstance(args[0], list):
-        if args[0][0] == "var":
-            print(varlist[args[0][1]])
-        elif args[0][0] == "global":
-            print(globallist[args[0][1]])
-        else:
-            print(str(args[0]))
-    else:
-        print(str(args[0]))
+    print(args[0])
     return varlist
 
 def read(args, varlist, globallist):
@@ -21,4 +11,15 @@ def read(args, varlist, globallist):
 
 def var(args, varlist, globallist):
     varlist[args[0]] = args[1]
+    return varlist
+
+def end(args, varlist, globallist):
+    raise SystemExit
+
+def add(args, varlist, globallist):
+    varlist[args[0]] = int(args[1]) + int(args[2])
+    return varlist
+
+def take(args, varlist, globallist):
+    varlist[args[0]] = int(args[1]) - int(args[2])
     return varlist
